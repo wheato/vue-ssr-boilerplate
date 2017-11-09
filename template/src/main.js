@@ -5,22 +5,20 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
-import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { createRouter } from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
+export function createApp () {
   {{#router}}
-  router,
+  const router = createRouter(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   {{/router}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  const app = new Vue({
+    {{#router}}
+    router,
+    {{/router}}
+    render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  return { app{{#router}}, router{{/router}} }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+}

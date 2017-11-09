@@ -1,4 +1,4 @@
-# vue-webpack-boilerplate
+# vue-ssr-boilerplate
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
@@ -43,12 +43,6 @@ The development server will run on port 8080 by default. If that port is already
   - Supports ES2015+ in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
 
 ### Fork It And Make Your Own
 
